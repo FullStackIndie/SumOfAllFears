@@ -4,8 +4,9 @@
 <!--
   TODO: Change Title
 -->
+
 <head>
-  <title>Template</title>
+  <title>Sum Of All Fears</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,22 +19,23 @@
 
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/a9c823f698.js" crossorigin="anonymous"></script>
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Courgette&family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Courgette&family=M+PLUS+Rounded+1c&display=swap"
+    rel="stylesheet">
 
 </head>
 
-<body>
+<body onload="loadData()">
   <header>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="NavBar-BG">
       <!--
         TODO: Change Header name
       -->
-      <a class="navbar-brand" href="#">Template</a>
+      <a class="navbar-brand" href="index.html">Sum Of All Fears</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -50,13 +52,9 @@
             <a class="nav-link" href="seeTheCode.html">See The Code</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="https://johnmurphyportfolio.netlify.app/" target="_blank">About The Developer</a>
           </li>
         </ul>
-        <form class="form-inline mt-2 mt-md-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
       </div>
     </nav>
   </header>
@@ -67,48 +65,67 @@
   <!-- Begin page content -->
   <main role="main" class="container" id="MainTop-BG">
     <div class="row">
-      <div class="col-9 col-md-9 col-lg-9"><h1>The App</h1></div>
-      <div class="col-9 col-md-9 col-lg-9"><p id="Font">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.
-      </p> </div>
-      <div class="col-3 col-md-3 col-lg-3"><img class="container-fluid" src="/img/js.png" /></div>
+      <div class="col-9 col-md-9 col-lg-9">
+        <div class="row">
+          <h1>Find which 2 numbers equal the sum</h1>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>Enter The Number Your Looking For</label>
+            <input type="number" class="form-control" id="numberToSearch">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>Numbers To Search</label>
+            <br>
+            <label id="numbersArray">Numbers To Search</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>Add A Number</label>
+            <br>
+            <input type="number" class="form-control" id="addNumber">
+            <button onclick="addNumber()" class="btn btn-dark mt-1">Add Number To Search List</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <br/>
+            <button class="btn btn-dark" onclick="getData()">Find Sum of Your Number</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-3 col-md-3 col-lg-3">
+        <img class="container-fluid" src="/img/js.png" />
+      </div>
     </div>
 
     <div class="row">
-      <div class="col-9 col-md-9 col-lg-9"><h6>JavaScript Template</h6><pre><code>
-const fs = require("fs-extra") // note: not being used just yet
-const ejs = require("ejs")
-const argv = require("yargs-parser")(process.argv.slice(2))
-const path = require("path")
-
-const main = () => {
-// 1. Welcome log
-console.log("Generating template...")
-try {
-// 2. Destructure args from argv and set _ array to variable "data"
-
-      </code></pre></div>
-      <div class="col-3 col-md-3 col-lg-3"></div>
-      <div class="col-3 col-md-3 col-lg-3"></div>
+      <div class="col-9 col-md-9 col-lg-9">
+        <label>Results</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-9 col-md-9 col-lg-9">
+        <label id="results"></label>
+      </div>
     </div>
 
+
+
+
     <div class="row">
-      <div class="col-4 col-md-4 col-lg-4"><img src="/img/coderFoundry.png"/></div>
       <div class="col-4 col-md-4 col-lg-4"></div>
       <div class="col-4 col-md-4 col-lg-4"></div>
     </div>
   </main>
 
-  <!--
-    TODO: Change The Footer Title
-  -->
+
   <footer class="footer" id="Footer-BG">
     <div class="container">
-      <span class="text-muted">Template</span>
+      <span class="text-white-50">&copy; John Murphy 2021</span>
     </div>
   </footer>
 
@@ -127,8 +144,8 @@ try {
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
 
-<!-- Custom JS -->
-<script src="/js/site.js"></script>
+  <!-- Custom JS -->
+  <script src="/js/site.js"></script>
 
 
 </body>
