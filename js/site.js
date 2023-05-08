@@ -50,7 +50,7 @@ function checkSum(numArray, totalSum) {
 function addSum(numArray, index, totalSum) {
     for (let i = 0; i < numArray.length; i++) {
         if (numArray[i] + index == totalSum) {
-            sets.push(`${numArray[i]} + ${index} = ${totalSum}`);
+            sets.push(` ${numArray[i]} + ${index} = ${totalSum}`);
         }
     }
 }
